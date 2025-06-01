@@ -10,6 +10,8 @@ import {useTenant} from "@/context/tenant-context";
 import {X} from "lucide-react";
 import {updateTenant} from "@/lib/tenants";
 import {toast} from "sonner";
+import {ScrollToBottomButton} from "@/components/scroll-to-bottom-button";
+import {ScrollToTopButton} from "@/components/scroll-to-top-button";
 
 export function WorldsForm() {
     const {id} = useParams(); // Get tenants ID from URL
@@ -69,6 +71,8 @@ export function WorldsForm() {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <ScrollToBottomButton />
+                <ScrollToTopButton />
                 {fields.map((field, index) => (
                     <div key={field.id} className="border p-4 rounded-md gap-2 relative flex flex-col justify-stretch">
                         <div className="flex flex-row justify-stretch gap-4">

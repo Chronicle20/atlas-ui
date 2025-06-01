@@ -12,6 +12,8 @@ import {Switch} from "@/components/ui/switch";
 import {useEffect} from "react";
 import {updateTenant} from "@/lib/tenants";
 import {toast} from "sonner";
+import {ScrollToBottomButton} from "@/components/scroll-to-bottom-button";
+import {ScrollToTopButton} from "@/components/scroll-to-top-button";
 
 const propertiesFormSchema = z.object({
     region: z
@@ -75,6 +77,8 @@ export function PropertiesForm() {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <ScrollToBottomButton />
+                <ScrollToTopButton />
                 <FormField
                     control={form.control}
                     name="region"

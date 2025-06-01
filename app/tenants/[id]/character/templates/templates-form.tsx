@@ -12,6 +12,8 @@ import {Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle} from "@/
 import {CharacterTemplate} from "@/lib/templates";
 import {updateTenant} from "@/lib/tenants";
 import {toast} from "sonner";
+import {ScrollToBottomButton} from "@/components/scroll-to-bottom-button";
+import {ScrollToTopButton} from "@/components/scroll-to-top-button";
 
 interface FormValues {
     templates: CharacterTemplate[];
@@ -103,6 +105,8 @@ export function TemplatesForm() {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <ScrollToBottomButton />
+                <ScrollToTopButton />
                 {fields.map((field, index) => (
                     <div key={field.id}
                          className="border p-4 rounded-md gap-2 relative flex flex-col justify-stretch">
