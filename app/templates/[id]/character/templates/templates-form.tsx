@@ -115,7 +115,7 @@ export function TemplatesForm() {
                 {fields.map((field, index) => (
                     <div key={field.id}
                          className="border p-4 rounded-md gap-2 relative flex flex-col justify-stretch">
-                        <div className="flex flex-row justify-stretch">
+                        <div className="flex flex-row justify-stretch gap-4">
                             <FormField
                                 control={form.control}
                                 name={`templates.${index}.jobIndex`}

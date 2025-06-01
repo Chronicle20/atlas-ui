@@ -43,10 +43,29 @@ export function TemplatesForm() {
         }
     });
 
-    const {fields, remove} = useFieldArray({
+    const {fields, remove, append} = useFieldArray({
         control: form.control,
         name: "templates"
     });
+
+    const addTemplate = () => {
+        append({
+            jobIndex: 0,
+            subJobIndex: 0,
+            gender: 0,
+            mapId: 0,
+            faces: [],
+            hairs: [],
+            hairColors: [],
+            skinColors: [],
+            tops: [],
+            bottoms: [],
+            shoes: [],
+            weapons: [],
+            items: [],
+            skills: [],
+        });
+    };
 
     useEffect(() => {
         form.reset({
@@ -87,7 +106,7 @@ export function TemplatesForm() {
                 {fields.map((field, index) => (
                     <div key={field.id}
                          className="border p-4 rounded-md gap-2 relative flex flex-col justify-stretch">
-                        <div className="flex flex-row justify-stretch">
+                        <div className="flex flex-row justify-stretch gap-4">
                             <FormField
                                 control={form.control}
                                 name={`templates.${index}.jobIndex`}
@@ -158,7 +177,11 @@ export function TemplatesForm() {
                         </Button>
                     </div>
                 ))}
-                <div className="flex flex-row gap-2 justify-end">
+                <div className="flex flex-row gap-2 justify-between">
+                    <Button type="button"
+                            onClick={addTemplate}>
+                        Add
+                    </Button>
                     <Button type="submit">Save</Button>
                 </div>
             </form>

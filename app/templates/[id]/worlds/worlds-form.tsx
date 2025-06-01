@@ -86,7 +86,7 @@ export function WorldsForm() {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 {fields.map((field, index) => (
                     <div key={field.id} className="border p-4 rounded-md gap-2 relative flex flex-col justify-stretch">
-                        <div className="flex flex-row justify-stretch">
+                        <div className="flex flex-row justify-stretch gap-4">
                             <FormField
                                 control={form.control}
                                 name={`worlds.${index}.name`}
@@ -127,7 +127,7 @@ export function WorldsForm() {
                                 </FormItem>
                             )}
                         />
-                        <div className="flex flex-row justify-stretch">
+                        <div className="flex flex-row justify-stretch gap-4">
                             <FormField
                                 control={form.control}
                                 name={`worlds.${index}.eventMessage`}
